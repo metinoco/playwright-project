@@ -11,3 +11,8 @@ test("Get by Role", async ({ page }) => {
   await page.getByRole("checkbox", { name: "Subscribe" }).check();
   await page.getByRole("button", {name: "Submit"}).click()
 });
+
+test ("Get by Label", async({ page }) => {
+  await page.goto("http://192.168.1.9:8080/Localizadores.html");
+  await page.getByLabel("Password").fill('Secreto')
+})
