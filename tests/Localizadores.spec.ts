@@ -16,3 +16,8 @@ test ("Get by Label", async({ page }) => {
   await page.goto("http://192.168.1.9:8080/Localizadores.html");
   await page.getByLabel("Password").fill('Secreto')
 })
+
+test ("Get by Placeholder", async({ page }) => {
+  await page.goto("http://192.168.1.9:8080/Localizadores.html");
+  await page.getByPlaceholder("name@example.com").fill('test@test.com')
+})
