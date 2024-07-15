@@ -37,3 +37,8 @@ test ("Get by AltText", async ({page}) => {
   // Buscar por texto alterno del elemento
   await page.getByAltText('playwright logo').click();
 })
+
+test ("Get by Title", async ({page}) => {
+  // Buscar por título del elemento
+  await expect (page.getByTitle('Issues count')).toHaveText("25 issues");
+})
