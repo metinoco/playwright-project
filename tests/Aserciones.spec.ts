@@ -6,5 +6,13 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("Verificación de elementos attached", async ({ page }) => {
-    await expect(page.locator('#attached')).toBeAttached();
-  });
+  await expect(page.locator("#attached")).toBeAttached();
+});
+
+test("Verificación de estado de elementos", async ({ page }) => {
+  const checkbox = page.locator("#checked-checkbox");
+//   await checkbox.uncheck();
+  await expect(checkbox).toBeChecked();
+  //Verificación negativa
+//   await expect(checkbox).not.toBeChecked();
+});
