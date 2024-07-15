@@ -32,3 +32,8 @@ test("Get by Text", async ({ page }) => {
   // Buscar por texto y validar que contenga alguna palabra en el string sin importar minúscula o mayúscula 
   await expect(page.getByText(/welcome, [A-Za-z]+$/i)).toBeVisible();
 });
+
+test ("Get by AltText", async ({page}) => {
+  // Buscar por texto alterno del elemento
+  await page.getByAltText('playwright logo').click();
+})
