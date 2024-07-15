@@ -29,16 +29,21 @@ test("Get by Text", async ({ page }) => {
   await expect(page.getByText("Welcome, john")).toBeVisible();
   // Buscar por texto exacto
   await expect(page.getByText("Welcome, John", { exact: true })).toBeVisible();
-  // Buscar por texto y validar que contenga alguna palabra en el string sin importar minúscula o mayúscula 
+  // Buscar por texto y validar que contenga alguna palabra en el string sin importar minúscula o mayúscula
   await expect(page.getByText(/welcome, [A-Za-z]+$/i)).toBeVisible();
 });
 
-test ("Get by AltText", async ({page}) => {
+test("Get by AltText", async ({ page }) => {
   // Buscar por texto alterno del elemento
-  await page.getByAltText('playwright logo').click();
-})
+  await page.getByAltText("playwright logo").click();
+});
 
-test ("Get by Title", async ({page}) => {
+test("Get by Title", async ({ page }) => {
   // Buscar por título del elemento
-  await expect (page.getByTitle('Issues count')).toHaveText("25 issues");
-})
+  await expect(page.getByTitle("Issues count")).toHaveText("25 issues");
+});
+
+test("Get by TestId", async ({ page }) => {
+  // Buscar por data test id del elemento
+  await page.getByTestId("directions").click();
+});
