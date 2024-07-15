@@ -16,3 +16,8 @@ test("Verificación de estado de elementos", async ({ page }) => {
   //Verificación negativa
 //   await expect(checkbox).not.toBeChecked();
 });
+
+test("Verificación de elementos deshabilitados", async ({ page }) => {
+    const botonDeshabilitado = page.locator("#disabled-button");
+    await expect(botonDeshabilitado).toBeDisabled();
+  });
