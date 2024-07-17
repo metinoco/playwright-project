@@ -50,3 +50,8 @@ test("Verificación de elementos dentro de la vista", async ({ page }) => {
   await elementoEnViewport.scrollIntoViewIfNeeded();
   await expect(elementoEnViewport).toBeInViewport();
 });
+
+test("Verificación de elementos visibles", async ({ page }) => {
+  const elementoVisible = page.locator("#visible-element");
+  await expect(elementoVisible).toBeVisible();
+});
