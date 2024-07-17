@@ -42,3 +42,10 @@ test("Verificación de elementos ocultos", async ({ page }) => {
   // const elementoOculto = page.locator(".hidden");
   await expect(elementoOculto).toBeHidden();
 });
+
+test("Verificación de elementos dentro de la vista", async ({ page }) => {
+  const elementoEnViewport = page.locator("#in-viewport");
+  // Scrollea el viewport hasta encontrar el elemento
+  await elementoEnViewport.scrollIntoViewIfNeeded();
+  await expect(elementoEnViewport).toBeInViewport();
+});
