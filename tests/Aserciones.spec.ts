@@ -29,3 +29,8 @@ test("Verificación de elementos editables", async ({ page }) => {
   // const textboxNoEditable = page.locator("#non_editable_textbox");
   // await expect (textboxNoEditable).not.toBeEditable();
 });
+
+test("Verificación de elementos habilitados", async ({ page }) => {
+  const botonHabilitado = page.locator("#enabled-button");
+  await expect(botonHabilitado).toBeEnabled();
+});
