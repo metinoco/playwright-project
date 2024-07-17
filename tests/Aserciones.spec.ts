@@ -75,3 +75,13 @@ test("Verificación de elementos con lista", async ({ page }) => {
   const lista = page.locator("#list-with-children > li");
   await expect(lista).toHaveCount(3);
 });
+
+test("Verificación de elementos con estilos CSS", async ({ page }) => {
+  const elementoConCSS = page.locator("#element-with-css");
+  await expect(elementoConCSS).toHaveCSS('color', 'rgb(0, 0, 255)');
+});
+
+test("Verificación de elementos con ID", async ({ page }) => {
+  const elementoConID = page.locator("#element-with-id");
+  await expect(elementoConID).toHaveId('element-with-id');
+});
