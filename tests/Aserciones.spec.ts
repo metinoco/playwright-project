@@ -65,3 +65,8 @@ test("Verificación de elementos con atributos", async ({ page }) => {
   const elementoConAtributo = page.locator("#link-with-attribute");
   await expect(elementoConAtributo).toHaveAttribute('href', 'https://example.com');
 });
+
+test("Verificación de elementos con clases", async ({ page }) => {
+  const elementoConClases = page.locator("#element-with-class");
+  await expect(elementoConClases).toHaveClass('test-class');
+});
