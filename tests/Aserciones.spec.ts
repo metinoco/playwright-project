@@ -60,3 +60,8 @@ test("Verificación de elementos que contengan un texto", async ({ page }) => {
   const texto = page.locator("#text-container");
   await expect(texto).toContainText('Texto de ejemplo');
 });
+
+test("Verificación de elementos con atributos", async ({ page }) => {
+  const elementoConAtributo = page.locator("#link-with-attribute");
+  await expect(elementoConAtributo).toHaveAttribute('href', 'https://example.com');
+});
