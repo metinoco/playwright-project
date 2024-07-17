@@ -55,3 +55,8 @@ test("Verificación de elementos visibles", async ({ page }) => {
   const elementoVisible = page.locator("#visible-element");
   await expect(elementoVisible).toBeVisible();
 });
+
+test("Verificación de elementos que contengan un texto", async ({ page }) => {
+  const texto = page.locator("#text-container");
+  await expect(texto).toContainText('Texto de ejemplo');
+});
