@@ -34,3 +34,11 @@ test("Verificación de elementos habilitados", async ({ page }) => {
   const botonHabilitado = page.locator("#enabled-button");
   await expect(botonHabilitado).toBeEnabled();
 });
+
+test("Verificación de elementos ocultos", async ({ page }) => {
+  // Por id
+  const elementoOculto = page.locator("#hidden-element");
+  // Por clase
+  // const elementoOculto = page.locator(".hidden");
+  await expect(elementoOculto).toBeHidden();
+});
