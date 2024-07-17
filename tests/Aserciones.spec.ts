@@ -70,3 +70,8 @@ test("Verificación de elementos con clases", async ({ page }) => {
   const elementoConClases = page.locator("#element-with-class");
   await expect(elementoConClases).toHaveClass('test-class');
 });
+
+test("Verificación de elementos con lista", async ({ page }) => {
+  const lista = page.locator("#list-with-children > li");
+  await expect(lista).toHaveCount(3);
+});
