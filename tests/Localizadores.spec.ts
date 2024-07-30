@@ -6,7 +6,7 @@ import exp from "constants";
 // })
 
 test.beforeEach(async ({ page }) => {
-  await page.goto("http://192.168.1.8:8080/Localizadores.html");
+  await page.goto("http://192.168.1.4:8080/Localizadores.html");
 });
 
 test("Get by Role", async ({ page }) => {

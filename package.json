@@ -4,5 +4,8 @@
     "@types/node": "^20.14.2",
     "playwright": "^1.44.1"
   },
-  "scripts": {}
+  "scripts": {},
+  "dependencies": {
+    "npm": "^10.8.2"
+  }
 }
