@@ -41,3 +41,18 @@ test ('C1 - Registro de usuario', async ({page}) => {
     await page.waitForTimeout(2000);
     
 })
+
+test ('C2 - Inicio de sesión de usuario con mail y contraseña correctos', async ({page}) => {
+    await page.goto ('https://www.automationexercise.com/');
+    await page.waitForLoadState();
+    await expect(page).toHaveTitle('Automation Exercise');  
+    await page.getByRole('link', { name: 'Signup / Login' }).click();
+    await expect(page.getByRole('heading', { name: 'Login to your account' })).toBeVisible();
+    await page.locator('form').filter({ hasText: 'Login' }).getByPlaceholder('Email Address').fill('UsuarioAtenea@gmail.com');
+    await page.getByPlaceholder('Password').fill('test1234');
+    await page.getByRole('button', { name: 'Login' }).click();
+    await expect (page.getByText('Logged in as usuario')).toBeVisible();
+    
+    await page.waitForTimeout(3000);
+    
+})
