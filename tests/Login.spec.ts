@@ -51,8 +51,32 @@ test ('C2 - Inicio de sesión de usuario con mail y contraseña correctos', asyn
     await page.locator('form').filter({ hasText: 'Login' }).getByPlaceholder('Email Address').fill('UsuarioAtenea@gmail.com');
     await page.getByPlaceholder('Password').fill('test1234');
     await page.getByRole('button', { name: 'Login' }).click();
-    await expect (page.getByText('Logged in as usuario')).toBeVisible();
-    
-    await page.waitForTimeout(3000);
-    
+    await expect (page.getByText('Logged in as usuario')).toBeVisible();    
+})
+
+test ('C3 - Inicio de sesión de usuario con mail y contraseña incorrectos', async ({page}) => {
+    await page.goto ('https://www.automationexercise.com/');
+    await page.waitForLoadState();
+    await expect(page).toHaveTitle('Automation Exercise');  
+    await page.getByRole('link', { name: 'Signup / Login' }).click();
+    await expect(page.getByRole('heading', { name: 'Login to your account' })).toBeVisible();
+    await page.locator('form').filter({ hasText: 'Login' }).getByPlaceholder('Email Address').fill('UsuarioNoValido@gmail.com');
+    await page.getByPlaceholder('Password').fill('test1234');
+    await page.getByRole('button', { name: 'Login' }).click();
+    await expect (page.getByText('Your email or password is incorrect')).toBeVisible();      
+})
+
+test ('C4 - Cierre de sesión de usuario', async ({page}) => {
+    await page.goto ('https://www.automationexercise.com/');
+    await page.waitForLoadState();
+    await expect(page).toHaveTitle('Automation Exercise');  
+    await page.getByRole('link', { name: 'Signup / Login' }).click();
+    await expect(page.getByRole('heading', { name: 'Login to your account' })).toBeVisible();
+    await page.locator('form').filter({ hasText: 'Login' }).getByPlaceholder('Email Address').fill('UsuarioAtenea@gmail.com');
+    await page.getByPlaceholder('Password').fill('test1234');
+    await page.getByRole('button', { name: 'Login' }).click();
+    await expect (page.getByText('Logged in as usuario')).toBeVisible(); 
+    await page.getByRole('link', { name: 'Logout' }).click();
+    await page.waitForURL('https://www.automationexercise.com/login', {timeout: 2000});
+    // await expect(page.url()).toBe('https://www.automationexercise.com/login');
 })
